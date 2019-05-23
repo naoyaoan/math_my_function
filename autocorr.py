@@ -29,15 +29,3 @@ def autocorr(wave, fs, order=10, output='hertz'):
             return f0
         elif output == 'time':
             return f0
-
-
-def origin_dft(data):
-    length = len(data)
-    frequency_data_real, frequency_data_imag = [], []
-    for k in range(length):
-        b = 0j
-        for n in range(length):
-            b += data[n] * np.exp(-2j*np.pi*n*k/length)
-        frequency_data_real.append(b.real)
-        frequency_data_imag.append(b.imag)
-    return frequency_data_real, frequency_data_imag
