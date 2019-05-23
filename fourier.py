@@ -3,6 +3,11 @@ import numpy as np
 
 
 def origin_dft(data):
+    """
+    離散フーリエ変換を行う
+
+    data(numpy):  離散フーリエ変換を行う時間データ
+    """
     length = len(data)
     frequency_data_real = np.zeros(length); frequency_data_imag = np.zeros(length)
     for k in range(length):
@@ -70,7 +75,7 @@ def origin_fft(data):
     """
     高速フーリエ変換を行う。　周波数間引き法を用いている。
 
-    data(numpy):  フーリエ変換を行う時間データ
+    data(numpy): 高速フーリエ変換を行う時間データ
     """
 
     judgement = _calculate_power(len(data))  # 2の乗数を確認
